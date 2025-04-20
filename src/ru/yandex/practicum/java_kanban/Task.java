@@ -1,30 +1,43 @@
+package ru.yandex.practicum.java_kanban;
+
 import java.util.Objects;
 
 public class Task {
-    private int id;
+    private Integer id;
     private String name;
     private String description;
     private TaskStatus status = TaskStatus.NEW;
 
-    public Task(int id, String name, String description) {
-        this.id = id;
+    public Task(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    public Task(int id, String name, String description, TaskStatus status) {
+    public Task(String name, String description, TaskStatus status) {
+        this.name = name;
+        this.description = description;
+        this.status = status;
+    }
+
+    public Task(Integer id, String name, String description, TaskStatus status) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.status = status;
     }
 
+    public Task(Integer id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
 
-    public int getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -69,7 +82,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
+        return "{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

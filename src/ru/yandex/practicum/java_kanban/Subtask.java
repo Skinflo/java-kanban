@@ -1,24 +1,26 @@
+package ru.yandex.practicum.java_kanban;
+
 import java.util.Objects;
 
 public class Subtask extends Task {
 
-    private int epicId;
+    private Integer epicId;
 
-    public Subtask(int id, String name, String description, int epicId) {
-        super(id, name, description);
+    public Subtask(String name, String description, int epicId) {
+        super(name, description);
         this.epicId = epicId;
     }
 
-    public Subtask(int id, String name, String description, TaskStatus status, int epicId) {
+    public Subtask(Integer id, String name, String description, TaskStatus status, int epicId) {
         super(id, name, description, status);
         this.epicId = epicId;
     }
 
-    public int getEpicId() {
+    public Integer getEpicId() {
         return epicId;
     }
 
-    public void setEpicId(int epicId) {
+    public void setEpicId(Integer epicId) {
         this.epicId = epicId;
     }
 
@@ -37,7 +39,7 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return "Subtask{" +
+        return "{" +
                 "id=" + getId() +
                 ", name='" + getName() + '\'' +
                 ", description='" + getDescription() + '\'' +

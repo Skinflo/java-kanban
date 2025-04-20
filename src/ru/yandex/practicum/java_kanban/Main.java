@@ -1,3 +1,5 @@
+package ru.yandex.practicum.java_kanban;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -5,27 +7,27 @@ public class Main {
 
 //        Создание всех задач + вывод
 
-        Task task1 = new Task(taskManager.getId(), "Первая задача", "Описание");
+        Task task1 = new Task( "Первая задача", "Описание");
         taskManager.createTask(task1);
 
-        Task task2 = new Task(taskManager.getId(), "Вторая задача", "Описание");
+        Task task2 = new Task( "Вторая задача", "Описание");
         taskManager.createTask(task2);
 
-        Epic epic1 = new Epic(taskManager.getId(), "Первый Эпик", "Описание");
+        Epic epic1 = new Epic( "Первый Эпик", "Описание");
         taskManager.createEpic(epic1);
 
-        Epic epic2 = new Epic(taskManager.getId(), "Второй Эпик", "Описание");
+        Epic epic2 = new Epic( "Второй Эпик", "Описание");
         taskManager.createEpic(epic2);
 
-        Subtask subtask1 = new Subtask(taskManager.getId(), "Первый сабтаск",
+        Subtask subtask1 = new Subtask("Первый сабтаск",
                 "Описание", epic1.getId());
         taskManager.createSubtask(subtask1);
 
-        Subtask subtask2 = new Subtask(taskManager.getId(), "Второй сабтаск",
+        Subtask subtask2 = new Subtask( "Второй сабтаск",
                 "Описание", epic1.getId());
         taskManager.createSubtask(subtask2);
 
-        Subtask subtask3 = new Subtask(taskManager.getId(), "Третий сабтаск",
+        Subtask subtask3 = new Subtask("Третий сабтаск",
                 "Описание", epic2.getId());
         taskManager.createSubtask(subtask3);
 
@@ -71,12 +73,17 @@ public class Main {
         System.out.println(taskManager.getAllEpics());
         System.out.println(taskManager.getAllSubtasks());
 
+        taskManager.deleteSubtaskById(subtask2.getId());
+        System.out.println(taskManager.getAllEpics());
+        System.out.println(taskManager.getAllSubtasks());
+
         taskManager.deleteEpicById(epic1.getId());
 
         System.out.println(taskManager.getAllEpics());
         System.out.println(taskManager.getAllSubtasks());
 
 //        Удаление всех задач
+
         taskManager.deleteALlTasks();
         taskManager.deleteAllSubtasks();
         taskManager.deleteAllEpics();

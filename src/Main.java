@@ -1,9 +1,14 @@
-package ru.yandex.practicum.java_kanban;
+import manager.Managers;
+import manager.TaskManager;
+import task.Epic;
+import task.Subtask;
+import task.Task;
+import task.TaskStatus;
 
 public class Main {
     public static void main(String[] args) {
 
-        TaskManager taskManager = new TaskManager();
+        TaskManager taskManager = Managers.getDefault();
 
 //        Создание всех задач + вывод
 
@@ -19,16 +24,13 @@ public class Main {
         Epic epic2 = new Epic( "Второй Эпик", "Описание");
         taskManager.createEpic(epic2);
 
-        Subtask subtask1 = new Subtask("Первый сабтаск",
-                "Описание", epic1.getId());
+        Subtask subtask1 = new Subtask("Первый сабтаск", "Описание", epic1.getId());
         taskManager.createSubtask(subtask1);
 
-        Subtask subtask2 = new Subtask( "Второй сабтаск",
-                "Описание", epic1.getId());
+        Subtask subtask2 = new Subtask( "Второй сабтаск", "Описание", epic1.getId());
         taskManager.createSubtask(subtask2);
 
-        Subtask subtask3 = new Subtask("Третий сабтаск",
-                "Описание", epic2.getId());
+        Subtask subtask3 = new Subtask("Третий сабтаск", "Описание", epic2.getId());
         taskManager.createSubtask(subtask3);
 
         System.out.println(taskManager.getAllTasks());
@@ -91,5 +93,7 @@ public class Main {
         System.out.println(taskManager.getAllTasks());
         System.out.println(taskManager.getAllEpics());
         System.out.println(taskManager.getAllSubtasks());
+
+        System.out.println(taskManager.getHistory());
     }
 }

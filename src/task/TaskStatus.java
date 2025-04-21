@@ -1,4 +1,4 @@
-package ru.yandex.practicum.java_kanban;
+package task;
 
 public enum TaskStatus {
     NEW,

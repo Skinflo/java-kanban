@@ -1,11 +1,11 @@
-package ru.yandex.practicum.java_kanban;
+package ru.yandex.practicum.java_kanban.tasks;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class Epic extends Task {
 
-    private ArrayList<Integer> SubtasksId = new ArrayList<>();
+    private ArrayList<Integer> subtasksId = new ArrayList<>();
 
     public Epic(int id, String name, String description) {
         super(id, name, description);
@@ -15,16 +15,20 @@ public class Epic extends Task {
         super(name, description);
     }
 
-    public void addSubtask(Subtask subtask) {
-        SubtasksId.add(subtask.getId());
+    public void addSubtask(Integer id) {
+        subtasksId.add(id);
     }
 
     public ArrayList<Integer> getSubtasks() {
-        return SubtasksId;
+        return subtasksId;
+    }
+
+    public void deleteSubtasks() {
+        subtasksId.clear();
     }
 
     public void setSubtasks(ArrayList<Integer> subtasksId) {
-        this.SubtasksId = subtasksId;
+        this.subtasksId = subtasksId;
     }
 
     @Override
@@ -32,12 +36,12 @@ public class Epic extends Task {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Epic epic = (Epic) o;
-        return Objects.equals(SubtasksId, epic.SubtasksId);
+        return Objects.equals(subtasksId, epic.subtasksId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), SubtasksId);
+        return Objects.hash(super.hashCode(), subtasksId);
     }
 
     @Override
@@ -47,7 +51,7 @@ public class Epic extends Task {
                 ", name='" + getName() + '\'' +
                 ", description='" + getDescription() + '\'' +
                 ", status=" + getStatus() +
-                ", subtasks=" + SubtasksId +
+                ", subtasks=" + subtasksId +
                 '}';
     }
 }

@@ -1,5 +1,11 @@
 package ru.yandex.practicum.java_kanban;
 
+import ru.yandex.practicum.java_kanban.task_manager.TaskManager;
+import ru.yandex.practicum.java_kanban.tasks.Epic;
+import ru.yandex.practicum.java_kanban.tasks.Subtask;
+import ru.yandex.practicum.java_kanban.tasks.Task;
+import ru.yandex.practicum.java_kanban.tasks.TaskStatus;
+
 public class Main {
     public static void main(String[] args) {
 

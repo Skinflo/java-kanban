@@ -2,7 +2,7 @@ package task;
 
 import java.util.Objects;
 
-public class Task {
+public class Task implements Cloneable{
     private Integer id;
     private String name;
     private String description;
@@ -19,17 +19,18 @@ public class Task {
         this.status = status;
     }
 
-    public Task(Integer id, String name, String description, TaskStatus status) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.status = status;
-    }
 
     public Task(Integer id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
+    }
+
+    public Task(Integer id, String name, String description, TaskStatus status) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.status = status;
     }
 
 
@@ -70,6 +71,11 @@ public class Task {
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
         return id == task.id;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     @Override

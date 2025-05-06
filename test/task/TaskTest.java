@@ -1,16 +1,15 @@
-package manager;
+package task;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import task.Task;
-import task.TaskStatus;
 
-public class TaskTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class TaskTest {
 
     @Test
-    public void taskEqual() {
+    public void equals_returnTrue_idsAreSame() {
         Task task1 = new Task(1, "1", "1", TaskStatus.NEW);
         Task task2 = new Task(1, "2", "2", TaskStatus.NEW);
-        assertEquals(task1, task2);
+        assertTrue(task1.equals(task2));
     }
 }

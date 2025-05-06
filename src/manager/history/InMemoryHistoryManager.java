@@ -1,4 +1,4 @@
-package manager;
+package manager.history;
 
 import task.Task;
 
@@ -13,9 +13,14 @@ public class InMemoryHistoryManager implements HistoryManager {
         if (tasksHistory.size() >= 10) {
             tasksHistory.remove(0);
         }
-        Task taskForHistory = new Task(task.getId(), task.getName(), task.getDescription(), task.getStatus());
-        tasksHistory.add(taskForHistory);
+        Task taskForHistory = null;
+        try {
+            taskForHistory = (Task) task.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
         }
+        tasksHistory.add(taskForHistory);
+    }
 
     @Override
     public ArrayList<Task> getHistory() {

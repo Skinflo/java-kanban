@@ -12,4 +12,15 @@ class EpicTest {
         assertTrue(epic1.equals(epic2));
     }
 
+    @Test
+    public void addSubtask_notAddValue_idSameWithEpicId() {
+        Epic epic = new Epic(1, "1", "1");
+
+        epic.addSubtask(1);
+        assertTrue(epic.getSubtasks().isEmpty());
+
+        epic.addSubtask(5);
+        assertEquals(1, epic.getSubtasks().size());
+        assertEquals(5,epic.getSubtasks().get(0));
+    }
 }

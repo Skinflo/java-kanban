@@ -30,6 +30,14 @@ public class Subtask extends Task {
     }
 
     @Override
+    public void setId(Integer id) {
+        if(id == epicId) {
+            return;
+        }
+        super.setId(id);
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), epicId);
     }

@@ -33,7 +33,6 @@ public class Task implements Cloneable{
         this.status = status;
     }
 
-
     public Integer getId() {
         return id;
     }

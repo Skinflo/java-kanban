@@ -1,7 +1,5 @@
 package manager.history;
 
-import manager.Managers;
-import manager.task.TaskManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import task.Epic;
@@ -102,20 +100,37 @@ class InMemoryHistoryManagerTest {
     }
 
     @Test
-    void add_deleteFirst_addedMoreThanTen() {
-        Task task1 = new Task("1", "1");
+    void remove_removeTaskFromHistory() {
+        Task task = new Task(1, "1", "1");
 
-        Task task2 = new Task("2", "2");
+        historyManager.add(task);
+        historyManager.remove(task.getId());
 
-        for (int i = 0; i <= 10; i++) {
-            if (i == 1) {
-                historyManager.add(task2);
-            } else {
-                historyManager.add(task1);
-            }
-        }
-
-        assertEquals(10, historyManager.getHistory().size());
-        assertEquals(task2, historyManager.getHistory().get(0));
+        assertTrue(historyManager.getHistory().isEmpty());
+        assertEquals(0, historyManager.getHistory().size());
     }
+
+    @Test
+    void remove_removeEpicFromHistory() {
+        Epic epic = new Epic(1, "1", "1");
+
+        historyManager.add(epic);
+        historyManager.remove(epic.getId());
+
+        assertTrue(historyManager.getHistory().isEmpty());
+        assertEquals(0, historyManager.getHistory().size());
+    }
+
+    @Test
+    void remove_removeSubtaskFromHistory() {
+        Subtask subtask = new Subtask(1, "1", "1", TaskStatus.NEW, 2);
+
+        historyManager.add(subtask);
+        historyManager.remove(subtask.getId());
+
+        assertTrue(historyManager.getHistory().isEmpty());
+        assertEquals(0, historyManager.getHistory().size());
+    }
+
+
 }

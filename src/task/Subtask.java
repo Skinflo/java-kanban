@@ -31,7 +31,7 @@ public class Subtask extends Task {
 
     @Override
     public void setId(Integer id) {
-        if(id == epicId) {
+        if (id == epicId) {
             return;
         }
         super.setId(id);
